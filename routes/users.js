@@ -1,7 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
 const pool = require('../dbcon'); // Import the database connection pool
 
 const app = express();
@@ -117,7 +116,7 @@ adminUsersRouter.post('/', async (req, res) => {
     // Insert new user
     const [result] = await pool.execute(
       'INSERT INTO users (name, email, role, status, avatar, password) VALUES (?, ?, ?, ?, ?, ?)',
-      [name, email, role, status, avatar || null, hashedPassword]
+      [name, email, role, status, 'https://example.com/avatars/charlie-davis.jpg' || null, hashedPassword]
     );
     
     // Fetch the created user (without password)
