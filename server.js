@@ -7,7 +7,17 @@ const app = express();
 const port = 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://plumeriaretreat.vercel.app',
+    'https://adminplumeria.vercel.app/',
+    'http://localhost:5173',
+    'http://localhost:5174'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 // Import routes
