@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST /admin/bookings - create a new booking
+// POST /admin/bookings - create a new bookings
 router.post('/', async (req, res) => {
   try {
     const {
