@@ -13,6 +13,9 @@ router.get('/', async (req, res) => {
         b.guest_name AS guest,
         b.guest_email AS email,
         b.guest_phone AS phone,
+        b.food_veg AS veg,
+        b.food_nonveg AS nonVeg,
+        b.food_jain As jainCount,
         a.title AS accommodation,
         b.check_in AS checkIn,
         b.check_out AS checkOut,
@@ -39,7 +42,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST /admin/bookings - create a new booking
+// POST /admin/bookings - create a new bookings
 router.post('/', async (req, res) => {
   try {
     const {
